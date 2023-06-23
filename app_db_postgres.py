@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+import psycopg2
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///myshop.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://product_aam5_user:MV0cioEmapmrTcqrHGYAeMCoeSKi5urC@dpg-ciajr5p8g3nden4teub0-a.oregon-postgres.render.com/product_aam5"
 db = SQLAlchemy(app)
 CORS(app)
 
@@ -60,8 +61,8 @@ def product(id=-1):
 #     "stock": 55
 #   }
 
-@app.route('/create_Product/<id>', methods=['POST'])
-@app.route('/create_Product', methods=['POST'])
+@app.route('/create_product/<id>', methods=['POST'])
+@app.route('/create_product', methods=['POST'])
 def create_product(id=-1):
     data = request.get_json()    
     # add new Product

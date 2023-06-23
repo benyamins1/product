@@ -1,11 +1,10 @@
 from flask import Flask, render_template, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-import psycopg2
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://product_aam5_user:MV0cioEmapmrTcqrHGYAeMCoeSKi5urC@dpg-ciajr5p8g3nden4teub0-a.oregon-postgres.render.com/product_aam5"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///myshop.db"
 db = SQLAlchemy(app)
 CORS(app)
 
